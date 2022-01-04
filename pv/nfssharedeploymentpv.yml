@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+        name: sharedeployment-dir1
+spec:
+        capacity:
+                storage: 5Gi
+        volumeMode: Filesystem
+        accessModes:
+                        - ReadWriteMany
+        persistentVolumeReclaimPolicy: Retain
+        storageClassName: storagenfs-1
+        mountOptions:
+                - hard
+                - nfsvers=4.1
+        nfs:
+              path: /sharedeployment/dir1
+              server: 10.0.0.4
+        claimRef:
+                   name: sharedeploymentpvc-dir1
+                   namespace: newgen
+        

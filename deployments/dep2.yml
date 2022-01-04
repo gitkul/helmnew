@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: httpd-deployment1
+        namespace: newgen
+        labels:
+                app: app2
+spec:
+        template:
+
+                metadata:
+                                name: httpd1
+                                labels:
+                                        app: app2
+                spec:
+                        volumes:
+                                - name: myvol-2
+                                  persistentVolumeClaim:
+                                             claimName: pvc-nfs-2
+
+                        containers:
+
+                                - name: httpd
+                                  image: httpd
+                                  volumeMounts:
+                                               - name: myvol-2
+                                                 mountPath: "/mnt/"
+
+
+        replicas: 3
+
+        selector:
+                matchLabels:
+                        app: app2
+
+
+

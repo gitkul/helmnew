@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: httpd
+  name: httpd-112
+  namespace: caas
+spec:
+  containers:
+  - image: httpd
+    name: httpd
+  serviceAccountName: serviceaccount-1

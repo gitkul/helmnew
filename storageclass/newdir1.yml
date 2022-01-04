@@ -1,0 +1,9 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+        name: newdirnfs1
+        namespace: newgen
+provisioner: cluster.local/nfs-subdir-external-provisioner
+parameters:
+        server: 10.0.0.4
+        path: /newdir1

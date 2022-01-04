@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: sharedeploymentdir2
+        namespace: newgen
+        labels:
+                app: sharedeploymentdir1label
+spec:
+        template:
+                metadata:       
+                                name: sharedeploymentdir2
+                                labels:
+                                        app: sharedeploymentdir1label
+                spec:
+                        containers:
+                                - name: centos
+                                  image: centos
+                                  args:
+                                            - /bin/sh
+                                            - -c
+                                            - touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600
+                                  livenessProbe:
+                                              exec:
+                                                     command:
+                                                            - cat
+                                                            - /tmp/healthy
+                                              initialDelaySeconds: 5
+                                              periodSeconds: 5
+
+                                  volumeMounts:
+                                               - name: sharedeploymentdir1label-vol2
+                                                 mountPath: /mnt
+                                             
+
+                        volumes:
+                                - name: sharedeploymentdir1label-vol2
+                                  persistentVolumeClaim:
+                                                claimName: sharedeploymentpvc-dir2
+
+        replicas: 3
+        selector:
+                matchLabels:
+                        app: sharedeploymentdir1label
+
+                                  

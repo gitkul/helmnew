@@ -1,0 +1,8 @@
+apiVersion: storage.k8s.io/v1
+kind:   StorageClass
+metadata:
+        name: storagenfs-2
+provisioner: cluster.local/nfs-subdir-external-provisioner
+parameters:
+          path: /sharedeployment/dir2
+          server: 10.0.0.4

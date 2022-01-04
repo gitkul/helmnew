@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+        name: pvc-nfs.pvc-1
+        namespace: newgen
+spec:
+        volumeMode: Filesystem
+        accessModes:    
+                - ReadWriteOnce
+        resources:
+                requests:       
+                     storage: 4Gi
+        storageClassName: nfs-client 

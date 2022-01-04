@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+
+        name: nginx-deployment1
+        namespace: newgen
+        labels:
+                app: app1
+spec:
+       
+        template:
+                metadata:
+                        name: nginx1
+                        labels:
+                                app: app1
+                spec:
+
+                        volumes:
+                                - name: myvol-1
+                                  persistentVolumeClaim:
+                                             claimName: pvc-nfs-1
+
+                        containers:
+                                - name: nginx
+                                  image: nginx
+                                  volumeMounts:
+                                               - name: myvol-1
+                                                 mountPath: "/mnt"
+
+        replicas: 3
+        selector:
+                matchLabels:
+                        app: app1

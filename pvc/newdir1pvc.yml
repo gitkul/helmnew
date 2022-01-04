@@ -1,0 +1,14 @@
+apiVersion: v1
+kind:   PersistentVolumeClaim 
+metadata:
+        name: newdir1pvc
+        namespace: newgen
+spec:
+        resources:
+                requests:
+                        storage: 4Gi
+        storageClassName: newdirnfs1 
+        volumeMode: Filesystem
+        accessModes:
+                      - ReadWriteMany
+        

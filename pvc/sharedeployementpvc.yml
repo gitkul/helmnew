@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+          name: sharedeploymentpvc-dir1
+          namespace: newgen
+spec:
+        resources:
+              requests:
+                 storage: 4Gi
+        storageClassName: storagenfs-1 
+        volumeMode: Filesystem
+        accessModes:
+                  - ReadWriteMany
+
+                 

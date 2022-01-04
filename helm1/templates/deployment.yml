@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: helm-chart-1
+        namespace: helmtesting
+        labels:
+                app: helm1
+spec:
+        template:
+                metadata:
+                        labels:
+                                 app: helm1
+                spec:
+                        containers:
+                                - name: httpd
+                                  image: httpd
+
+        replicas: {{ .Values.replicaCount }}
+        selector:
+                matchLabels:
+                        app: helm1

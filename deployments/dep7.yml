@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: nfsstroage-deployment4
+        namespace: newgen
+        labels:
+                app: new5
+spec:
+        template:
+                metadata:
+                         name: nfsstroage-deployment4
+                         labels:
+                                app: new5
+                spec:
+                        containers:
+                               - name: nginx
+                                 image: nginx
+                                 volumeMounts:
+                                         - name: my-firest-4
+                                           mountPath: /mnt
+                        volumes:
+                                - name: my-firest-4
+                                  persistentVolumeClaim:
+                                                claimName: pvc-cc-2 
+
+        replicas: 3
+        selector:
+                matchLabels:
+                        app: new5

@@ -3,12 +3,23 @@ entries:
   helm1:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-01-09T07:53:18.590357022Z"
+    created: "2022-01-09T17:58:23.34529758Z"
     description: A Helm chart for Kubernetes
-    digest: bed88ad2c9d9569072ea52768e0cc875a81df55053587217333c46228aaa147d
+    digest: d7c5530172bd1851808c926bb3794838b1e74b7a4c291923da69e53749116f38
     name: helm1
     type: application
     urls:
     - helm1-0.3.0.tgz
     version: 0.3.0
-generated: "2022-01-09T07:53:18.588675111Z"
+  helm2:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-01-09T17:58:23.347334307Z"
+    description: A Helm chart for Kubernetes
+    digest: f54b7ae02566331006a057811e2ce5cc4735e48ea8f6f72f5b93357784c86e3e
+    name: helm2
+    type: application
+    urls:
+    - helm2-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-01-09T17:58:23.344456669Z"

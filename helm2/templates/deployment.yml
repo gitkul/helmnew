@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: helm-chart-2
+        namespace: helmtesting
+        labels:
+                app: helm2
+spec:
+        template:
+                metadata:
+                        labels:
+                                 app: helm2
+                spec:
+                        containers:
+                                - name: nginx
+                                  image: nginx
+
+        replicas: {{ .Values.replicaCount }}
+        selector:
+                matchLabels:
+                        app: helm2
